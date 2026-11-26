@@ -1,14 +1,321 @@
-<!DOCTYPE html>
-<html>
 
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Confira nosso catálogo e faça seu pedido pelo WhatsApp.">
+
+  <title>Minha Loja | Catálogo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  
-</body>
 
+  <!-- CABEÇALHO -->
+
+  <header class="topbar">
+    <div class="container header-content">
+
+      <a class="brand" href="#">
+        <span class="brand-mark">M</span>
+        <span id="storeName">MINHA LOJA</span>
+      </a>
+
+      <div class="header-actions">
+
+        <a class="header-whatsapp" id="headerWhatsapp" href="#" target="_blank">
+          Fale conosco
+        </a>
+
+        <button class="cart-button" id="openCart" type="button" aria-label="Abrir carrinho">
+          <span aria-hidden="true">🛒</span>
+          <span>Carrinho</span>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+
+      </div>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- APRESENTAÇÃO -->
+
+    <section class="hero">
+
+      <div class="container hero-content">
+
+        <div class="hero-copy">
+
+          <span class="eyebrow">CATÁLOGO ONLINE</span>
+
+          <h1>Encontre o que você procura.</h1>
+
+          <p>
+            Confira nossos produtos e faça seu pedido
+            de um jeito simples, direto pelo WhatsApp.
+          </p>
+
+          <a class="hero-button" href="#catalogo">
+            Ver produtos ↓
+          </a>
+
+        </div>
+
+        <div class="hero-decoration">
+
+          <div class="decoration-card card-one">✦</div>
+
+          <div class="decoration-card card-two">♡</div>
+
+          <div class="decoration-circle"></div>
+
+          <span class="decoration-caption">
+            Seu próximo favorito está aqui.
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CATÁLOGO -->
+
+    <section class="catalog-section container" id="catalogo">
+
+      <div class="section-heading">
+
+        <div>
+          <span class="eyebrow">ESCOLHA O SEU</span>
+
+          <h2>Nosso catálogo</h2>
+
+          <p class="muted">
+            Produtos selecionados para você.
+          </p>
+        </div>
+
+        <span class="product-count" id="productCount">
+          0 produtos
+        </span>
+
+      </div>
+
+
+      <!-- PESQUISA E ORDENAÇÃO -->
+
+      <div class="catalog-tools">
+
+        <label class="search-box">
+
+          <span>⌕</span>
+
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Buscar produto..."
+            aria-label="Buscar produto"
+          >
+
+        </label>
+
+        <select id="sortSelect" aria-label="Ordenar produtos">
+
+          <option value="featured">Mais relevantes</option>
+
+          <option value="low">Menor preço</option>
+
+          <option value="high">Maior preço</option>
+
+          <option value="name">Nome A–Z</option>
+
+        </select>
+
+      </div>
+
+
+      <!-- CATEGORIAS -->
+
+      <nav class="categories" id="categories" aria-label="Categorias"></nav>
+
+
+      <!-- PRODUTOS -->
+
+      <div class="product-grid" id="productGrid"></div>
+
+
+      <!-- NENHUM PRODUTO -->
+
+      <div class="empty-state" id="emptyState" hidden>
+
+        <span>⌕</span>
+
+        <h3>Nenhum produto encontrado</h3>
+
+        <p>
+          Tente buscar por outro nome ou selecionar
+          outra categoria.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTATO -->
+
+    <section class="contact-strip">
+
+      <div class="container contact-content">
+
+        <div>
+
+          <span class="eyebrow">PRECISA DE AJUDA?</span>
+
+          <h2>Estamos a uma mensagem de distância.</h2>
+
+          <p>
+            Fale com a gente pelo WhatsApp para tirar
+            dúvidas ou consultar disponibilidade.
+          </p>
+
+        </div>
+
+        <a
+          class="contact-button"
+          id="bottomWhatsapp"
+          href="#"
+          target="_blank"
+        >
+          Conversar no WhatsApp ↗
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FUNDO ESCURO DO CARRINHO -->
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+
+  <!-- CARRINHO LATERAL -->
+
+  <aside
+    class="cart-drawer"
+    id="cartDrawer"
+    aria-label="Carrinho de compras"
+    aria-hidden="true"
+    inert
+  >
+
+    <div class="cart-header">
+
+      <div>
+        <span class="eyebrow">SEU PEDIDO</span>
+
+        <h2>Meu carrinho</h2>
+
+      </div>
+
+      <button
+        class="close-cart"
+        id="closeCart"
+        type="button"
+        aria-label="Fechar carrinho"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <!-- LISTA DE PRODUTOS DO CARRINHO -->
+
+    <div class="cart-items" id="cartItems">
+
+      <div class="cart-empty">
+
+        <span>🛒</span>
+
+        <h3>Seu carrinho está vazio</h3>
+
+        <p>Adicione produtos para começar seu pedido.</p>
+
+      </div>
+
+    </div>
+
+
+    <!-- RODAPÉ DO CARRINHO -->
+
+    <div class="cart-footer" id="cartFooter">
+
+      <div class="cart-total">
+
+        <span>Total do pedido</span>
+
+        <strong id="cartTotal">R$ 0,00</strong>
+
+      </div>
+
+      <button
+        class="checkout-button"
+        id="checkoutButton"
+        type="button"
+        disabled
+      >
+        Finalizar pedido pelo WhatsApp
+      </button>
+
+      <button
+        class="continue-shopping"
+        id="continueShopping"
+        type="button"
+      >
+        Continuar comprando
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- RODAPÉ -->
+
+  <footer class="footer">
+
+    <div class="container footer-content">
+
+      <span id="footerStoreName">MINHA LOJA</span>
+
+      <span>
+        © <span id="currentYear"></span>
+        · Todos os direitos reservados.
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script src="main.js"></script>
+
+</body>
 </html>
